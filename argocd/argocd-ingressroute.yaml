@@ -1,0 +1,28 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  annotations:
+  labels:
+    app.kubernetes.io/instance: argocd-server
+    app.kubernetes.io/name: argocd-server
+  name: argocd-server
+  namespace: argocd
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`dashboard.argocd.127.0.0.1.sslip.io`)
+    priority: 10
+    services:
+    - kind: Service
+      name:  argocd-server
+      port: 80
+  - kind: Rule
+    match: Host(`dashboard.argocd.127.0.0.1.sslip.io`) && Headers(`Content-Type`, `application/grpc`)
+    priority: 11
+    services:
+      - name: argocd-server
+        port: 80
+        scheme: h2c
+  tls: {}

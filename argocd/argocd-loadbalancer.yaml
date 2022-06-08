@@ -1,0 +1,31 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   labels:
+#     app.kubernetes.io/instance: argocd-server
+#     app.kubernetes.io/name: argocd-server
+#   name: argocd-server-lb
+#   namespace: argocd
+# spec:
+#   allocateLoadBalancerNodePorts: true
+#   externalTrafficPolicy: Cluster
+#   internalTrafficPolicy: Cluster
+#   ipFamilies:
+#   - IPv4
+#   ipFamilyPolicy: SingleStack
+#   ports:
+#   - name: web
+#     nodePort: 31549
+#     port: 80
+#     protocol: TCP
+#     targetPort: web
+#   - name: websecure
+#     nodePort: 31060
+#     port: 443
+#     protocol: TCP
+#     targetPort: websecure
+#   selector:
+#     app.kubernetes.io/instance: argocd-server
+#     app.kubernetes.io/name: argocd-server
+#   sessionAffinity: None
+#   type: LoadBalancer
