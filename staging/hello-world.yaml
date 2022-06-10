@@ -17,4 +17,4 @@ spec:
       - "staging/values.yaml"
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: hello-world-dev
+    namespace: hello-world-staging
