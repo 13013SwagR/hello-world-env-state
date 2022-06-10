@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/13013SwagR/hello-world
-    targetRevision: 1.29.0
+    targetRevision: error
     path: ./chart/
     helm:
       valueFiles:
