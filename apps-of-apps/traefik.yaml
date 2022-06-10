@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/13013SwagR/hello-world-env-state
     targetRevision: main
-    path: ./staging
+    path: ./traefik
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
