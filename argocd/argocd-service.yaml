@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: argocd-server
     app.kubernetes.io/part-of: argocd
-  name: argocd-server
+  name: argocd-server-nodeport
   namespace: argocd
 spec:
 
@@ -24,4 +24,3 @@ spec:
     app.kubernetes.io/name: argocd-server
   sessionAffinity: None
   type: NodePort
-
