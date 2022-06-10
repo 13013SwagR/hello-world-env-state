@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: staging-env
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/13013SwagR/hello-world-env-state
     targetRevision: main
-    path: ./argocd
+    path: ./staging
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
